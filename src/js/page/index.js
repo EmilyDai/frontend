@@ -22,6 +22,7 @@ const router = new VueRouter({
  * @returns {{name: string}}
  * @constructor
  */
+ import navvarComponent from '../components/navbar.vue'
     //App启动
 let App = new Vue({
     el: '#App',
@@ -29,6 +30,9 @@ let App = new Vue({
         return {
             'name': 'index'
         }
+    },
+    components:{
+      'navbar-component': navvarComponent
     },
     router: router,
     mounted(){

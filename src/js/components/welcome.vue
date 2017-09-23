@@ -1,6 +1,6 @@
 <template>
     <div class="welcome-wrap">
-        <img src="http://i1.buimg.com/1949/43ab520761604482.jpg" alt="">
+        <img src="https://pic3.zhimg.com/v2-d18ff3d84c99c26eb8162be708d4f462_r.jpg" alt="">
     </div>
 </template>
 <script>
