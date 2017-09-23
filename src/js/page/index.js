@@ -1,4 +1,5 @@
 require("../../html/index.html");
+require("../../sass/common/reset.scss")
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
