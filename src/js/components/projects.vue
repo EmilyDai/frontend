@@ -5,12 +5,14 @@
   </div>
     <el-col :span=8 v-for="(project, index) in projects" :offset="index%2 > 0 ? 3 : 2">
       <el-card :body-style="{ padding: '0px' }">
+      <a href="javascript:;" @click="learnProjectDetail(project.id)">
       <img v-bind:src="project.image" class="image">
+      </a>
       <div style="padding: 14px;">
         <span>{{project.name}}</span>
         <div class="bottom clearfix">
           <time class="time">{{project.notice}}</time>
-          <el-button type="text" class="button">Join</el-button>
+          <el-button type="text" class="button" @click="joinProject(project.id)">現在加入</el-button>
         </div>
       </div>
       </el-card>
@@ -62,18 +64,21 @@ export default {
       curTag:0,
       projects:[
         {
+          id:1,
           name:"InMyLife",
           notice:"記錄自己的一天",
           tag_id:0,
           image:require("./../../assets/image_project1.jpg")
         },
         {
+          id:2,
           name:"日本語練習",
           notice:"每日一分鐘口語練習",
           tag:1,
           image:require("./../../assets/image_project2.jpg")
         },
         {
+          id:3,
           name:"KeepFit",
           notice:"運動打卡，遇見更好的自己",
           tag:2,
@@ -95,6 +100,24 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    joinProject(project_id){
+      var self = this;
+      console.log(project_id);
+      this.$http.post('/userprojects/', {
+            'project_id': project_id,
+        }).then(function (response) {
+              self.$message('成功加入了，請努力打卡喲！')
+        }).catch(e => {
+              self.$message('啊嗚，好像出錯了')
+        })
+    },
+    learnProjectDetail(project_id){
+      this.$router.push({
+        'path': '/projects/'+project_id.toString(),
+      })
+    }
   }
 }
 </script>
