@@ -32,7 +32,7 @@ let App = new Vue({
         }
     },
     components:{
-      'navbar-component': navvarComponent
+      'navbar-component': navvarComponent,
     },
     router: router,
     mounted(){
